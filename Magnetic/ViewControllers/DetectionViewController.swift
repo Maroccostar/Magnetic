@@ -3,7 +3,7 @@
 //  Magnetic
 //
 //  Created by Vasiliy Homenko on 04.04.2024.
-//
+//  final version
 
 import UIKit
 
@@ -13,10 +13,10 @@ class DetectionViewController: UIViewController {
         DetectionViewModel()
     }()
     
-    private var searchLabel: UILabel!
-    private var searchButton: UIButton!
     private var circleImageView: UIImageView!
     private var poligonImageView: UIImageView!
+    private var searchLabel: UILabel!
+    private var searchButton: UIButton!
     private var isSearching = false
     
     override func viewDidLoad() {
