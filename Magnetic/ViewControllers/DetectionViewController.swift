@@ -9,10 +9,10 @@ import UIKit
 
 class DetectionViewController: UIViewController {
     
-    private lazy var viewModel: DetectionViewModelType = {
-        DetectionViewModel()
-    }()
+    var viewModel: DetectionViewModelType!
     
+    private var backgroundImage: UIImageView!
+    private var scaleImageView: UIImageView!
     private var circleImageView: UIImageView!
     private var poligonImageView: UIImageView!
     private var searchLabel: UILabel!
@@ -29,18 +29,16 @@ class DetectionViewController: UIViewController {
         
         setupBackgroundImageView()
         setupScaleImageView()
-        setupPoligonImageView()
-        setupCircle()
         setupSearchLabel()
+        setupCircleImageView()
+        setupPoligonImageView()
         setupSearchButton()
         
         viewModel.onFieldDetection = { [weak self] value in
             self?.updateSearchLabel(with: "\(value) uT")
-            self?.rotateCircle(toValue: value)
+            self?.rotateCircle(toValue: CGFloat(value))
             
         }
-        
-        poligonImageView.layer.anchorPoint = CGPoint(x: 1, y: 1)
     }
 }
 
@@ -51,49 +49,49 @@ private extension DetectionViewController {
     func setupBackgroundImageView() {
         let imageView = UIImageView()
         imageView.image = UIImage(resource: .imageMagnet)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
             imageView.topAnchor.constraint(equalTo: view.topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 329)
+            imageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 330)
         ])
+        self.backgroundImage = imageView
     }
     
     func setupScaleImageView() {
         let imageView = UIImageView()
         imageView.image = UIImage(resource: .imageScale)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 390),
+            imageView.topAnchor.constraint(equalTo: backgroundImage.bottomAnchor, constant: 48),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             imageView.heightAnchor.constraint(equalToConstant: 180)
         ])
-        
+        self.scaleImageView = imageView
     }
 
-    func setupCircle() {
+    func setupCircleImageView() {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .imageEllipse)
+        imageView.image = UIImage(resource: .imageCircle)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 545),
+            imageView.centerXAnchor.constraint(equalTo: scaleImageView.centerXAnchor),
+            imageView.bottomAnchor.constraint(equalTo: searchLabel.topAnchor, constant: -52),
+            imageView.topAnchor.constraint(equalTo: scaleImageView.bottomAnchor, constant: -20),
             imageView.widthAnchor.constraint(equalToConstant: 32),
             imageView.heightAnchor.constraint(equalToConstant: 32)
         ])
-        imageView.addSubview(poligonImageView!)
-        
         self.circleImageView = imageView
     }
     
@@ -119,11 +117,11 @@ private extension DetectionViewController {
         imageView.image = UIImage(resource: .imagePolygon)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(imageView)
+        circleImageView.addSubview(imageView)
         
         NSLayoutConstraint.activate([
-            imageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 562),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 146),
+            imageView.topAnchor.constraint(equalTo: circleImageView.topAnchor, constant: 6),
+            imageView.leadingAnchor.constraint(equalTo: circleImageView.leadingAnchor, constant: -78),
             imageView.widthAnchor.constraint(equalToConstant: 80),
             imageView.heightAnchor.constraint(equalToConstant: 20)
         ])
@@ -142,11 +140,9 @@ private extension DetectionViewController {
         
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            label.topAnchor.constraint(equalTo: view.topAnchor, constant: 625),
             label.widthAnchor.constraint(equalToConstant: 160),
             label.heightAnchor.constraint(equalToConstant: 20)
         ])
-        
         self.searchLabel = label
     }
     
@@ -174,6 +170,7 @@ private extension DetectionViewController {
         NSLayoutConstraint.activate([
             button.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             button.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            button.topAnchor.constraint(greaterThanOrEqualTo: searchLabel.bottomAnchor, constant: 40),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             button.heightAnchor.constraint(equalToConstant: 50)
         ])
@@ -188,7 +185,7 @@ private extension DetectionViewController {
         }
     }
     
-    @objc func searchButtonTapped() {
+    @objc private func searchButtonTapped() {
         if isSearching {
             searchButton.setTitle("Search", for: .normal)
             resetRotateCircle()

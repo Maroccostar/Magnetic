@@ -8,17 +8,18 @@
 import UIKit
 
 protocol DetectionViewModelType {
-    var onFieldDetection: ((Double) -> Void)? { get set }
+    var onFieldDetection: ((Int) -> Void)? { get set }
     func searchMagneticField()
 }
 
 
 class DetectionViewModel: DetectionViewModelType {
-    var onFieldDetection: ((Double) -> Void)?
+    var onFieldDetection: ((Int) -> Void)?
     
     func searchMagneticField() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            self?.onFieldDetection?(60)
+            let randomValue = Int.random(in: 10...95)
+            self?.onFieldDetection?(randomValue)
         }
     }
     

@@ -14,6 +14,7 @@
 		622525782BBEA72A00CEEBB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 622525762BBEA72A00CEEBB0 /* LaunchScreen.storyboard */; };
 		622525842BBEAB3F00CEEBB0 /* DetectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622525832BBEAB3F00CEEBB0 /* DetectionViewModel.swift */; };
 		622525862BBEAB6D00CEEBB0 /* DetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 622525852BBEAB6D00CEEBB0 /* DetectionViewController.swift */; };
+		626C66932BC3099D006716B2 /* ModulesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 626C66922BC3099D006716B2 /* ModulesFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		622525792BBEA72A00CEEBB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		622525832BBEAB3F00CEEBB0 /* DetectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewModel.swift; sourceTree = "<group>"; };
 		622525852BBEAB6D00CEEBB0 /* DetectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetectionViewController.swift; sourceTree = "<group>"; };
+		626C66922BC3099D006716B2 /* ModulesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				6225257F2BBEA90B00CEEBB0 /* Application */,
 				622525812BBEA92600CEEBB0 /* ViewControllers */,
 				622525802BBEA91400CEEBB0 /* ViewModel */,
+				626C66942BC309BE006716B2 /* ModulesFactory */,
 				622525822BBEA93400CEEBB0 /* Resources */,
 			);
 			path = Magnetic;
@@ -86,8 +89,8 @@
 		622525812BBEA92600CEEBB0 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				6225256F2BBEA72700CEEBB0 /* MagneticViewController.swift */,
 				622525852BBEAB6D00CEEBB0 /* DetectionViewController.swift */,
+				6225256F2BBEA72700CEEBB0 /* MagneticViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -100,6 +103,14 @@
 				622525792BBEA72A00CEEBB0 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		626C66942BC309BE006716B2 /* ModulesFactory */ = {
+			isa = PBXGroup;
+			children = (
+				626C66922BC3099D006716B2 /* ModulesFactory.swift */,
+			);
+			path = ModulesFactory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				622525862BBEAB6D00CEEBB0 /* DetectionViewController.swift in Sources */,
 				6225256C2BBEA72700CEEBB0 /* AppDelegate.swift in Sources */,
 				622525842BBEAB3F00CEEBB0 /* DetectionViewModel.swift in Sources */,
+				626C66932BC3099D006716B2 /* ModulesFactory.swift in Sources */,
 				6225256E2BBEA72700CEEBB0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

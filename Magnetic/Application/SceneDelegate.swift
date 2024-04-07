@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        let magneticVC = MagneticViewController()
+        let magneticVC = ModulesFactory.createMagneticScreen()
         let navController = UINavigationController(rootViewController: magneticVC)
         
         let window = UIWindow(windowScene: windowScene)

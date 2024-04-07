@@ -48,7 +48,7 @@ class MagneticViewController: UIViewController {
     }
 
     @objc func buttonTapped() {
-        let vc = DetectionViewController()
+        let vc = ModulesFactory.createDetectionScreen()
         navigationController?.pushViewController(vc, animated: true)
     }
 }
