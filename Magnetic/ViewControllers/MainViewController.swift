@@ -47,9 +47,9 @@ class MainViewController: UIViewController {
     var viewModel: MainControllerViewModelType!
     
     private var backgroundImageView: UIImageView!
-    private var stackViewFirst: UIStackView!
-    private var secondStackView: UIStackView!
-    private var thirdStackView: UIStackView!
+    private var stackViewScan: UIStackView!
+    private var stackViewBloksOne: UIStackView!
+    private var stackViewBloksTwo: UIStackView!
     
     private var scanButton: UIButton!
     
@@ -63,9 +63,9 @@ class MainViewController: UIViewController {
         
         setupNavBar()
         setupBackgroundImageView()
-        setupStackViewFirst()
-        setupStackViewSecond()
-        setupStackViewThird()
+        setupStackViewScan()
+        setupStackViewBlocksOne()
+        setupStackViewBloksTwo()
         setupViewModelBloks()
     }
 }
@@ -80,19 +80,19 @@ private extension MainViewController {
         }
     }
     
-    var constrStackFirst: CGFloat {
+    var constrSize: CGFloat {
         screenHeight < 668 ? 18 : 28
     }
     
-    var constrDetectVar: CGFloat {
+    var constrHeightAnchor: CGFloat {
         screenHeight < 668 ? 28 : 44
     }
     
-    var constrStackThird: CGFloat {
+    var constrTopAnchor: CGFloat {
         screenHeight < 668 ? 6 : 36
     }
     
-    var constrHeightSVTwoThird: CGFloat {
+    var constrHeightAnchorTwo: CGFloat {
         switch screenHeight {
         case ...667:
             return 120
@@ -145,7 +145,7 @@ private extension MainViewController {
         return label
     }
     
-    func setupStackViewFirst() {
+    func setupStackViewScan() {
         let stackView = UIStackView()
         stackView.backgroundColor = UIColor(resource: .colorStackView)
         stackView.layer.cornerRadius = 10
@@ -163,7 +163,7 @@ private extension MainViewController {
         firstLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.addArrangedSubview(firstLabel)
         
-        let secondLabel = createLabel(size: constrStackFirst, weight: .bold, text: "WiFI_Name")
+        let secondLabel = createLabel(size: constrSize, weight: .bold, text: "WiFI_Name")
         secondLabel.textColor = UIColor(resource: .colorTitleStackView)
         secondLabel.textAlignment = .center
         secondLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -196,7 +196,7 @@ private extension MainViewController {
             button.trailingAnchor.constraint(equalTo: stackView.trailingAnchor, constant: -16),
         ])
 
-        self.stackViewFirst = stackView
+        self.stackViewScan = stackView
     }
     
     @objc func scanTapBtn() {
@@ -249,7 +249,7 @@ private extension MainViewController {
         
         NSLayoutConstraint.activate([
             imageView.widthAnchor.constraint(equalToConstant: 35),
-            imageView.heightAnchor.constraint(equalToConstant: constrDetectVar),
+            imageView.heightAnchor.constraint(equalToConstant: constrHeightAnchor),
             imageView.topAnchor.constraint(equalTo: detectionView.topAnchor, constant: 20),
             imageView.centerXAnchor.constraint(equalTo: detectionView.centerXAnchor),
             imageView.bottomAnchor.constraint(equalTo: vStack.topAnchor, constant: -8),
@@ -263,54 +263,54 @@ private extension MainViewController {
         return detectionView
     }
     
-    func setupStackViewSecond() {
-        let secondStackView = UIStackView()
-        secondStackView.axis = .horizontal
-        secondStackView.spacing = 40
-        secondStackView.alignment = .fill
-        secondStackView.distribution = .fillEqually
-        secondStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(secondStackView)
+    func setupStackViewBlocksOne() {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 40
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
         
         let firstTwoCases = Array(DetectionVariant.allCases.prefix(2))
         firstTwoCases.forEach { variant in
-            secondStackView.addArrangedSubview(createDetectionVariant(variant: variant))
+            stackView.addArrangedSubview(createDetectionVariant(variant: variant))
         }
         
         NSLayoutConstraint.activate([
-            secondStackView.topAnchor.constraint(equalTo: stackViewFirst.bottomAnchor, constant: 16),
-            secondStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            secondStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            secondStackView.heightAnchor.constraint(equalToConstant: constrHeightSVTwoThird),
-            secondStackView.widthAnchor.constraint(equalToConstant: 140)
+            stackView.topAnchor.constraint(equalTo: stackViewScan.bottomAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            stackView.heightAnchor.constraint(equalToConstant: constrHeightAnchorTwo),
+            stackView.widthAnchor.constraint(equalToConstant: 140)
         ])
         
-        self.secondStackView = secondStackView
+        self.stackViewBloksOne = stackView
     }
 
-    func setupStackViewThird() {
-        let thirdStackView = UIStackView()
-        thirdStackView.axis = .horizontal
-        thirdStackView.spacing = 40
-        thirdStackView.alignment = .fill
-        thirdStackView.distribution = .fillEqually
-        thirdStackView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(thirdStackView)
+    func setupStackViewBloksTwo() {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.spacing = 40
+        stackView.alignment = .fill
+        stackView.distribution = .fillEqually
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
         
         let lastTwoCases = Array(DetectionVariant.allCases.suffix(2))
         lastTwoCases.forEach { variant in
-            thirdStackView.addArrangedSubview(createDetectionVariant(variant: variant))
+            stackView.addArrangedSubview(createDetectionVariant(variant: variant))
         }
         
         NSLayoutConstraint.activate([
-            thirdStackView.topAnchor.constraint(equalTo: secondStackView.bottomAnchor, constant: constrStackThird),
-            thirdStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
-            thirdStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            thirdStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            thirdStackView.heightAnchor.constraint(equalToConstant: constrHeightSVTwoThird),
-            thirdStackView.widthAnchor.constraint(equalToConstant: 140)
+            stackView.topAnchor.constraint(equalTo: stackViewBloksOne.bottomAnchor, constant: constrTopAnchor),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            stackView.heightAnchor.constraint(equalToConstant: constrHeightAnchorTwo),
+            stackView.widthAnchor.constraint(equalToConstant: 140)
         ])
         
-        self.thirdStackView = thirdStackView
+        self.stackViewBloksTwo = stackView
     }
 }
