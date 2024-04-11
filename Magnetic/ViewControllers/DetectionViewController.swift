@@ -80,7 +80,7 @@ private extension DetectionViewController {
 
     func setupCircleImageView() {
         let imageView = UIImageView()
-        imageView.image = UIImage(resource: .imageCircle)
+        imageView.image = UIImage(resource: .ellipse)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(imageView)

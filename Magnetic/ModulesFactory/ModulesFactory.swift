@@ -18,4 +18,11 @@ final class ModulesFactory {
         controller.viewModel = viewModel
         return controller
     }
+    
+    static func createMainScreen() -> UIViewController {
+        let viewModel = MainControllerViewModel()
+        let controller = MainViewController()
+        controller.viewModel = viewModel
+        return controller
+    }
 }
