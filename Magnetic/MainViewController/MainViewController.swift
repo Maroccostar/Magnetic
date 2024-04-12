@@ -50,7 +50,6 @@ class MainViewController: UIViewController {
     private var stackViewScan: UIStackView!
     private var stackViewBloksOne: UIStackView!
     private var stackViewBloksTwo: UIStackView!
-    
     private var scanButton: UIButton!
     
     private let screenHeight = UIScreen.main.bounds.height
@@ -70,7 +69,7 @@ class MainViewController: UIViewController {
     }
 }
 
-// MARK: Private
+// MARK: - Private
 private extension MainViewController {
 
     func setupViewModelBloks() {
@@ -200,7 +199,8 @@ private extension MainViewController {
     }
     
     @objc func scanTapBtn() {
-        
+        let vc = ModulesFactory.createWiFiScreen()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func selectVariant(sender: UIGestureRecognizer) {
@@ -215,6 +215,7 @@ private extension MainViewController {
             self?.viewModel.processDetectionSelection(detectionVariant: detectionVariant)
         }
     }
+    
     
     // MARK: - Create view
     func createDetectionVariant(variant: DetectionVariant) -> UIView {

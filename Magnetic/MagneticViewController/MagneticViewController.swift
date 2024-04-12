@@ -18,7 +18,10 @@ class MagneticViewController: UIViewController {
         view.backgroundColor = UIColor(resource: .colorBackground)
         setButton()
     }
-    
+}
+
+// MARK: - Private
+private extension MagneticViewController {
     func setButton() {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(resource: .imageMagnetLogo), for: .normal)

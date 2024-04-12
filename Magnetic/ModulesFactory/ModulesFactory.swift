@@ -25,4 +25,15 @@ final class ModulesFactory {
         controller.viewModel = viewModel
         return controller
     }
+    
+    static func createWiFiScreen() -> UIViewController {
+        let viewModel = WiFiSearchViewModel()
+        let controller = WiFiSearchViewController()
+        controller.viewModel = viewModel
+        return controller
+    }
+    
+    static func createResultWiFiScreen() -> UIViewController {
+        ResultWiFiViewController()
+    }
 }
