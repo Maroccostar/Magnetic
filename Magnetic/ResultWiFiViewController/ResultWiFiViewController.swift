@@ -118,10 +118,10 @@ extension ResultViewController {
             stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 35),
-            stackView.widthAnchor.constraint(equalToConstant: 160),//150
+            stackView.widthAnchor.constraint(equalToConstant: 160),
             stackView.bottomAnchor.constraint(equalTo: wiFilabel.bottomAnchor, constant: -25),
             
-            label.widthAnchor.constraint(equalToConstant: 40),// 28
+            label.widthAnchor.constraint(equalToConstant: 40),
             labelTwo.heightAnchor.constraint(equalToConstant: 33)
             
         ])
