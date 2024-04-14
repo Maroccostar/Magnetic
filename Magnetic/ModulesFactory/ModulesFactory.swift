@@ -34,6 +34,16 @@ final class ModulesFactory {
     }
     
     static func createResultWiFiScreen() -> UIViewController {
-        ResultWiFiViewController()
+        let viewModel = ResultViewModel()
+        let controller = ResultViewController()
+        controller.viewModel = viewModel
+        return controller
+    }
+    
+    static func createDeviceDetailScreen(device: Device) -> UIViewController {
+        let viewModel = DeviceDetailViewModel(device: device)
+        let controller = DeviceDetailController()
+        controller.viewModel = viewModel
+        return controller
     }
 }

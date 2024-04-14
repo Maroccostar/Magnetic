@@ -111,7 +111,7 @@ private extension WiFiSearchViewController {
         stackView.axis = .horizontal
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
-        let label = createLabel(size: 28, weight: .bold, text: "23")
+        let label = createLabel(size: 28, weight: .bold, text: "20")
         label.textColor = UIColor(resource: .colorTitleStackView)
         
         let labelTwo = createLabel(size: 17, weight: .semibold, text: "Devices Found...")

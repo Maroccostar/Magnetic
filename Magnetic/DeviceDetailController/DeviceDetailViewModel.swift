@@ -6,3 +6,15 @@
 //
 
 import Foundation
+
+protocol DeviceDetailViewModelType: AnyObject {
+    var device: Device? { get }
+}
+
+class DeviceDetailViewModel: DeviceDetailViewModelType {
+    let device: Device?
+    
+    init(device: Device?) {
+        self.device = device
+    }
+}

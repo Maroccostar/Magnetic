@@ -22,6 +22,11 @@
 		629AD77C2BC927BB0034A9B8 /* WiFiSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629AD77B2BC927BB0034A9B8 /* WiFiSearchViewController.swift */; };
 		629AD77E2BC927E60034A9B8 /* WiFiSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629AD77D2BC927E60034A9B8 /* WiFiSearchViewModel.swift */; };
 		629AD7802BC928390034A9B8 /* ResultWiFiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629AD77F2BC928390034A9B8 /* ResultWiFiViewController.swift */; };
+		62C62CAA2BCC5FD10010DAC7 /* DeviceDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C62CA92BCC5FD10010DAC7 /* DeviceDetailController.swift */; };
+		62C62CAC2BCC5FDD0010DAC7 /* DeviceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C62CAB2BCC5FDD0010DAC7 /* DeviceDetailViewModel.swift */; };
+		62C62CAE2BCC608F0010DAC7 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C62CAD2BCC608F0010DAC7 /* ResultViewModel.swift */; };
+		62C62CB02BCC60BB0010DAC7 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C62CAF2BCC60BB0010DAC7 /* ResultModel.swift */; };
+		62C62CB22BCC60E70010DAC7 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62C62CB12BCC60E70010DAC7 /* DeviceCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +47,11 @@
 		629AD77B2BC927BB0034A9B8 /* WiFiSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSearchViewController.swift; sourceTree = "<group>"; };
 		629AD77D2BC927E60034A9B8 /* WiFiSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSearchViewModel.swift; sourceTree = "<group>"; };
 		629AD77F2BC928390034A9B8 /* ResultWiFiViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultWiFiViewController.swift; sourceTree = "<group>"; };
+		62C62CA92BCC5FD10010DAC7 /* DeviceDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailController.swift; sourceTree = "<group>"; };
+		62C62CAB2BCC5FDD0010DAC7 /* DeviceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailViewModel.swift; sourceTree = "<group>"; };
+		62C62CAD2BCC608F0010DAC7 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
+		62C62CAF2BCC60BB0010DAC7 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		62C62CB12BCC60E70010DAC7 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				6225257F2BBEA90B00CEEBB0 /* Application */,
+				62C62CA82BCC5FA60010DAC7 /* DeviceDetailController */,
 				629AD7712BC926210034A9B8 /* DetectionViewController */,
 				629AD7732BC926440034A9B8 /* GifFile */,
 				629AD7702BC926120034A9B8 /* MagneticViewController */,
@@ -162,6 +173,9 @@
 			isa = PBXGroup;
 			children = (
 				629AD77F2BC928390034A9B8 /* ResultWiFiViewController.swift */,
+				62C62CAD2BCC608F0010DAC7 /* ResultViewModel.swift */,
+				62C62CAF2BCC60BB0010DAC7 /* ResultModel.swift */,
+				62C62CB12BCC60E70010DAC7 /* DeviceCell.swift */,
 			);
 			path = ResultWiFiViewController;
 			sourceTree = "<group>";
@@ -172,6 +186,15 @@
 				629AD7782BC927490034A9B8 /* gifAnimation.gif */,
 			);
 			path = GifImage;
+			sourceTree = "<group>";
+		};
+		62C62CA82BCC5FA60010DAC7 /* DeviceDetailController */ = {
+			isa = PBXGroup;
+			children = (
+				62C62CA92BCC5FD10010DAC7 /* DeviceDetailController.swift */,
+				62C62CAB2BCC5FDD0010DAC7 /* DeviceDetailViewModel.swift */,
+			);
+			path = DeviceDetailController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,15 +269,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				623A79D52BC8416800F1E2B5 /* MainViewController.swift in Sources */,
+				62C62CAE2BCC608F0010DAC7 /* ResultViewModel.swift in Sources */,
 				629AD77E2BC927E60034A9B8 /* WiFiSearchViewModel.swift in Sources */,
 				622525702BBEA72700CEEBB0 /* MagneticViewController.swift in Sources */,
 				622525862BBEAB6D00CEEBB0 /* DetectionViewController.swift in Sources */,
 				6225256C2BBEA72700CEEBB0 /* AppDelegate.swift in Sources */,
 				622525842BBEAB3F00CEEBB0 /* DetectionViewModel.swift in Sources */,
 				629AD7802BC928390034A9B8 /* ResultWiFiViewController.swift in Sources */,
+				62C62CB22BCC60E70010DAC7 /* DeviceCell.swift in Sources */,
 				623A79D72BC841CB00F1E2B5 /* MainControllerViewModel.swift in Sources */,
 				629AD7772BC927070034A9B8 /* GifFile.swift in Sources */,
+				62C62CAC2BCC5FDD0010DAC7 /* DeviceDetailViewModel.swift in Sources */,
 				626C66932BC3099D006716B2 /* ModulesFactory.swift in Sources */,
+				62C62CB02BCC60BB0010DAC7 /* ResultModel.swift in Sources */,
+				62C62CAA2BCC5FD10010DAC7 /* DeviceDetailController.swift in Sources */,
 				6225256E2BBEA72700CEEBB0 /* SceneDelegate.swift in Sources */,
 				629AD77C2BC927BB0034A9B8 /* WiFiSearchViewController.swift in Sources */,
 			);
