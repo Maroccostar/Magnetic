@@ -38,6 +38,10 @@ private extension WiFiSearchViewController {
         viewModel.onScanWiFiNetwork = { [weak self] value in
             self?.updatePercentLabel(with: "\(value)%")
         }
+        
+        viewModel.onSearchFinished = { [weak self] devices in
+            self?.presentResultScreen(devices: devices)
+        }
     }
 
     func setupGifImageView() {
@@ -58,13 +62,14 @@ private extension WiFiSearchViewController {
         self.imageGif = imageView
     }
     
+    func presentResultScreen(devices: [Device]) {
+        let vc = ModulesFactory.createResultWiFiScreen(foundDevices: devices)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
     func updatePercentLabel(with value: String) {
         DispatchQueue.main.async { [weak self] in
             self?.percentLabel.text = value
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
-            let vc = ModulesFactory.createResultWiFiScreen()
-            self?.navigationController?.pushViewController(vc, animated: true)
         }
     }
     

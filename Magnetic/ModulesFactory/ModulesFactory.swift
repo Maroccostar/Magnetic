@@ -33,8 +33,8 @@ final class ModulesFactory {
         return controller
     }
     
-    static func createResultWiFiScreen() -> UIViewController {
-        let viewModel = ResultViewModel()
+    static func createResultWiFiScreen(foundDevices: [Device]) -> UIViewController {
+        let viewModel = ResultViewModel(devices: foundDevices)
         let controller = ResultViewController()
         controller.viewModel = viewModel
         return controller

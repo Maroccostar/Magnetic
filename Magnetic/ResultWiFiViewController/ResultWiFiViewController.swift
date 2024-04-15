@@ -20,7 +20,17 @@ class ResultViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor(resource: .colorBackground)
-        extendedLayoutIncludesOpaqueBars = true
+        
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.largeTitleDisplayMode = .never
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .colorBackground
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.compactAppearance = appearance
+        }
         
         setupTableView()
         setupViewModel()
@@ -90,7 +100,6 @@ extension ResultViewController {
     }
     
     func setupViewModel() {
-        viewModel = ResultViewModel()
         viewModel.onShowCellDetails = { [weak self] detail in
             self?.showDeviceDetails(detail)
         }
